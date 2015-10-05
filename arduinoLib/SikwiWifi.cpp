@@ -101,7 +101,7 @@ bool SikwiWifi::connectToWifi(const char *ssid, const char *pass)
   this->writeCharPROGMEM(PSTR(","));
   this->writeCharPROGMEMln(pass);
 
-  bool result = this->wait_for_esp_response(40000);
+  bool result = this->wait_for_esp_response(30000);
   if(result)
   {
     this->debugPrinter->println(this->buffer);

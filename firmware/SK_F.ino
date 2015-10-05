@@ -360,8 +360,8 @@ void handleInputString()
       if(_result[0]=="name")
       {
         changeValueStringFor(_result[0], _result[1]);
-        name = _result[1];
-        aJson.addItemToObject(jsonConfigRoot, "name", aJson.createItem(name.c_str()));
+        deviceName = _result[1];
+        aJson.addItemToObject(jsonConfigRoot, "name", aJson.createItem(deviceName.c_str()));
       }
       else if(_result[1] == "true" || _result[1] == "false"){
         changeValueBoolFor(_result[0], _result[1]=="true");
@@ -563,7 +563,7 @@ void handleInputString()
     }
 
     if(wifiName == "")
-      wifiName = "SIKWI_"+name;
+      wifiName = "SIKWI_"+deviceName;
 
     if(createAPModeConnexion(wifiName)){
       Serial.print("IP:");

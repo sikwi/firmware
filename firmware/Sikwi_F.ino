@@ -40,7 +40,7 @@ void sikwiPush(String topic, String value, bool verbose){
     return; 
   }
   
-  if(sikwiServer->publish(sikwi_topicPrefix+"/"+topic, value))
+  if(sikwiServer->publish(sikwi_topicPrefix+"/"+topic+"/value", value))
   {
     if(verbose) Serial.println("OK");
     waitForResponse = true;
@@ -54,7 +54,7 @@ void sikwiPush(String topic, String value, bool verbose){
 void sikwiConnectedCb() {
   sikwi_Connected = true;
   sikwiServer->subscribe(sikwi_topicPrefix+"/#");
-  sikwiPush("name", name);
+  sikwiPush("name", deviceName);
   if(debug) Serial.println("SIKWI>C");
 }
 

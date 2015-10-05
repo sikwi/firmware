@@ -28,7 +28,7 @@ DNSServer *dnsServer;
 String homePageServer = "http://cdn.sikwi.com/V1/";
 String homePageName = "default/";
 String inputString = "";
-String name = "???";
+String deviceName = "???";
 String uid = "???";
 
 boolean debug = false;

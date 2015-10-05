@@ -35,7 +35,7 @@ void initData()
       jsonDataHistory = aJson.getObjectItem(jsonDataRoot, HISTORY_NAME);
       aJsonObject* nameObject = aJson.getObjectItem(jsonDataRoot, "name");
       if(nameObject->type == aJson_String)
-        name = nameObject->valuestring;
+        deviceName = nameObject->valuestring;
     }
   }
 
@@ -49,7 +49,7 @@ void initData()
 
 void createJson(){
   jsonDataRoot = aJson.createObject();
-  aJson.addItemToObject(jsonDataRoot, "name", aJson.createItem(name.c_str()));
+  aJson.addItemToObject(jsonDataRoot, "name", aJson.createItem(deviceName.c_str()));
   aJson.addItemToObject(jsonDataRoot, HISTORY_NAME, jsonDataHistory = aJson.createObject());
 }
 

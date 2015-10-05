@@ -1,7 +1,7 @@
 void createServerHttp(int port){ 
   if(debug){Serial.println("createServerHttp");delay(100);}
   
-  String nameMDNS = name;
+  String nameMDNS = deviceName;
   nameMDNS.replace(" ","");
   if(debug){Serial.println("createServerHttp1");delay(100);}
   
@@ -175,7 +175,7 @@ void serveHomePage(String serverURI)
     page += getConfJsonData();
     page += ">";*/
     page += F("<title>");
-    page += name;
+    page += deviceName;
     page += F("</title></head><body><p>");
     page += jsonDataString;
     page += F("</p><iframe src=");
@@ -197,7 +197,7 @@ void handleAPModePage(String s){
 
 String makePage(String content){
   String s = F("<!DOCTYPE html><html><head><title>Sikwi</title><meta name=viewport content=\"width=device-width,user-scalable=0\"><style>html, body {width : 100%;height: 100%;font-family: sans-serif;margin: 0;}body *{-webkit-appearance: none;font-weight: 100;margin: 0;padding: 0;display: block;}header{height: 110px;background-color: #2196f3;color: #FFF;line-height: 150px;font-size: 30px;text-align: center;}h1{margin-top: 20px;}p{margin: 10px 0px;text-align: justify;}#content {max-width: 300px;margin: auto;color : #999;}select, input{border: 1px solid #ccc;font-size: 16px;color : #2196f3;font-weight: 400;}select{display: inline;height: 40px;padding: 5px;width: 100%;background: #F5F5F5;}input{height: 25px;width: 278px;padding: 5px 10px;}#button{width: 100%;height: 70px;background-color: #2196f3;color: #FFF;margin: 30px 0;}label{margin: 20px 0 5px;}</style></head><body><header>");
-  s += name;
+  s += deviceName;
   s += F("</header><div id=content><h1>Wi-Fi Settings</h1>");
   s += content;
   s += F("</div></body></html>");

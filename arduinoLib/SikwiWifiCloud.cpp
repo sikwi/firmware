@@ -1,6 +1,6 @@
-#include "SikwiWifiServer.h"
+#include "SikwiWifiCloud.h"
 
-SikwiWifiServer::SikwiWifiServer(SikwiWifi *wifi)
+SikwiWifiCloud::SikwiWifiCloud(SikwiWifi *wifi)
 {
   this->wifi = wifi;
 }
@@ -9,7 +9,7 @@ SikwiWifiServer::SikwiWifiServer(SikwiWifi *wifi)
 /**************************************** Setup Server ************************************/
 /******************************************************************************************/
 
-bool SikwiWifiServer::connect(const char *user, const char *password, void (* handlerFunction)(String, String)){
+bool SikwiWifiCloud::connect(const char *user, const char *password, void (* handlerFunction)(String, String)){
   this->tcpHandler = handlerFunction;
 
   this->wifi->writeCharPROGMEM(PSTR("SK+SIKWI=\""));
@@ -24,7 +24,7 @@ bool SikwiWifiServer::connect(const char *user, const char *password, void (* ha
 /**************************************** Process ************************************/
 /*************************************************************************************/
 
-void SikwiWifiServer::process()
+void SikwiWifiCloud::process()
 {
   char *pb;
   if(this->wifi->newLine){
